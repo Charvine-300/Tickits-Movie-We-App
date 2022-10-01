@@ -13,6 +13,8 @@ import { BaseButton } from '../assets/styles/Button/styled'
 import { theme } from '../assets/variables'
 
 
+const background = 'linear-gradient(268.86deg, #BA68C8 0%, #F79240 100%)';
+
 const FeatureSlide = styled.div`
   #features .swiper-wrapper {
     align-items: center;
@@ -85,7 +87,7 @@ export default function Onboard() {
         </Swiper>
       </FeatureSlide>
 
-      <BaseButton variant='solid' width='270px' margin='2.5rem auto' family='secondary'> 
+      <BaseButton bg={`${background}`} variant='solid' radius='8px' width='270px' margin='2.5rem auto' family='secondary'> 
         Book Now 
       </BaseButton>
      
