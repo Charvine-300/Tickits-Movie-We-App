@@ -1,4 +1,4 @@
-import { SidebarConfig } from '@types';
+import { SidebarConfig } from '../../assets/types';
 import React from 'react';
 import { ButtonProps } from './components.type';
 import { RouteInterface } from './routes.type';
