@@ -1,17 +1,13 @@
 import styled, { css } from 'styled-components';
 import { font, theme } from '../../variables';
 import { ButtonProps, ColorTheme, ColorThemeWeight } from '../../types';
-import { objectKeys } from '../../../utils/functions';
+//import { objectKeys } from '../../../utils/functions';
 
 
 
 export const BaseButton = styled.button<ButtonProps>`
-  ${({ variant, background = 'linear-gradient(268.86deg, #BA68C8 0%, #F79240 100%);', color = 'white' }) => {
-    const bgDuplicate = background as keyof ColorTheme;
+  ${({ variant, color = 'white' }) => {
     const colorDuplicate = color as keyof ColorTheme;
-    const bg = (objectKeys(theme).includes(bgDuplicate)
-      ? theme[bgDuplicate][500 as never]
-      : background) as string;
     const col: string = Object.keys(theme).includes(color)
       ? theme[colorDuplicate][100 as never]
       : color;
@@ -20,7 +16,6 @@ export const BaseButton = styled.button<ButtonProps>`
       case 'solid':
         return css`
           border: none;
-          background: ${bg};
           color: ${col};
           svg,
           path,
@@ -33,30 +28,25 @@ export const BaseButton = styled.button<ButtonProps>`
         return css`
           background: transparent;
           color: ${color};
-          border: 1px solid ${bg};
           svg,
           path,
           * {
             color: ${col};
-            stroke: ${bg};
           }
         `;
       case 'text':
         return css`
         background: transparent;
           border: none;
-          color: ${bg};
           svg,
           path,
           * {
             color: ${col};
-            stroke: ${bg};
           }
         `;
       default:
         return css`
           border: none;
-          background: ${bg};
           color: ${col};
           svg,
           path,
@@ -72,6 +62,7 @@ export const BaseButton = styled.button<ButtonProps>`
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
+  background: ${(props) => props.bg || 'white'};
   border-radius: ${(props) => props.radius || '0'};
   margin: ${(props) => props.margin || '0.5rem 0'};
   font-family: ${(props) => 
@@ -94,9 +85,8 @@ export const IconButton = styled(BaseButton) <
   // height: ${({ size }) => size || '3.3125rem'};
   width: ${({ size }) => size || '3.3125rem'};
 
-  ${({ color, background }) => {
+  ${({ color }) => {
     return css`
-      background: ${theme[background as keyof ColorTheme ?? 'white'][100 as never]};
       svg,
       path,
       * {

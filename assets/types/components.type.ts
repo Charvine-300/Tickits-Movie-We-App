@@ -10,7 +10,7 @@ export type FontWeights = typeof font.weights;
 export interface ButtonProps {
   children: React.ReactNode;
   variant?: 'solid' | 'text' | 'outlined';
-  background?: keyof ColorTheme | Omit<string,keyof ColorTheme>;
+  bg?: string;
   color?: keyof ColorTheme | Omit<string,keyof ColorTheme>;
   size?: string;
   width?: string;
