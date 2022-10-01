@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, SelectHTMLAttributes, Attributes } from 'react';
 // import { Theme } from './theme.type';
-import { font, theme } from '../assets/utils/variables';
+import { font, theme } from "../variables";
 
 export type FontSizes = typeof font.sizes;
 export type ColorTheme = typeof theme;
@@ -13,6 +13,10 @@ export interface ButtonProps {
   background?: keyof ColorTheme | Omit<string,keyof ColorTheme>;
   color?: keyof ColorTheme | Omit<string,keyof ColorTheme>;
   size?: string;
+  width?: string;
+  family?: string;
+  margin?: string;
+  radius?: string;
 }
 export type AvatarProps = {
   size?: number;
@@ -51,7 +55,7 @@ export type TextProps = {
   align?: 'left' | 'center' | 'right';
   margin?: string;
   width?: string;
-  font?: string;
+  family?: string;
 };
 
 export type LabelTextProps = {

@@ -1,29 +1,3 @@
-export const font = {
-    family: {
-        primary: 'Poppins',
-        secondary: 'Quicksand',
-    },
-    sizes: {
-        base: '1rem',
-        xxs: '0.625rem',
-        xs: '0.75rem',
-        sm: '0.875rem',
-        lg: '1.5rem',
-        mlg: '2rem',
-        xl: '3rem',
-        xxl: '8rem',
-        xxxl: '3.625rem',
-      },
-    weights: {
-        light: 300,
-        normal: 400,
-        medium: 500,
-        semibold: 600,
-        bold: 700,
-    },
-}
-
-
 export const theme = {
     blue: {
       600: '#939BA5',
@@ -42,7 +16,7 @@ export const theme = {
     grey: {
       700: '#686868',
       600: '#626262',
-      500: '#888888',
+      500: '#939393',
       400: '#AEAEAE',
       300: '#898C90',
       200: '#BCBCBC',
@@ -72,5 +46,30 @@ export const theme = {
     orange: {
       100: '#F6EFE8',
       500: '#FC9700',
+    },
+  };
+  
+  export const font = {
+    family: {
+        primary: 'Poppins',
+        secondary: 'Quicksand',
+    },
+    sizes: {
+      base: '1rem',
+      xxs: '0.625rem',
+      xs: '0.75rem',
+      sm: '0.875rem',
+      lg: '1.5rem',
+      mlg: '2rem',
+      xl: '3rem',
+      xxl: '8rem',
+      xxxl: '3.625rem',
+    },
+    weights: {
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
     },
 };

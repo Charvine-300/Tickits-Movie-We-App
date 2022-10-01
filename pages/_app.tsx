@@ -1,12 +1,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { BrowserRouter } from 'react-router-dom'
+//import { BrowserRouter } from 'react-router-dom'
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <BrowserRouter>
+  return(
+    <Layout>
       <Component {...pageProps} />
-    </BrowserRouter>
+    </Layout>
+
   )
 }
 
