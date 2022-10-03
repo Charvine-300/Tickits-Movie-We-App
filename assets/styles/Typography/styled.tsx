@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { font, theme } from '../../variables';
 import { TextProps } from '../../types';
 
+
 export const Text = styled.span<TextProps>`
   font-size: ${(props) => font.sizes[props.size ?? 'base']};
   color: ${(props) => props.color || theme.grey[500]};
@@ -30,7 +31,6 @@ export const Paragraph = styled.p<TextProps>`
   margin: ${props => props.margin || '0.5rem 0'};
   max-width:${props => props.width || '100%'};
   overflow: hidden;
-  white-space:no-wrap;
   text-overflow: ellipsis;
 `;
 
@@ -56,11 +56,12 @@ export const H3 = styled.h3<TextProps>`
 export const H4 = styled.h4<TextProps>`
   font-size: 1.75rem;
   font-weight: ${font.weights.bold};
-  color: ${(props) => props.color || theme.black[100]};
+  color: ${(props) => props.color || theme.white[100]};
   text-align: ${(props) => props.align || 'left'};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   margin: ${(props) => props.margin || '0.5rem 0'};
-  max-width: 100%;
+  width: 100%;
+  max-width:${props => props.width || '100%'};
 `;
 
 export const H5 = styled.h5<TextProps>`

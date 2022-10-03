@@ -62,7 +62,7 @@ export const BaseButton = styled.button<ButtonProps>`
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  background: ${(props) => props.bg || 'white'};
+  background: ${(props) => props.bg || 'linear-gradient(268.86deg, #BA68C8 0%, #F79240 100%)'};
   border-radius: ${(props) => props.radius || '0'};
   margin: ${(props) => props.margin || '0.5rem 0'};
   font-family: ${(props) => 

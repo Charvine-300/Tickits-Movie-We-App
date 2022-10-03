@@ -7,7 +7,7 @@ function Layout({ children }: any) {
   return (
     <>
       { children }
-      <Footer />
+     {/* <Footer />*/}
     </>
   )
 }

@@ -5,11 +5,18 @@ import Image from 'next/image'
 import Logo from '../public/logo.png'
 import Spin from './Spin'
 import Router from 'next/router'
+import styled from 'styled-components'
 
 
-type Props = {}
+const ImageContainer = styled.div`
+  width: 70%;
 
-function Logopage({}: Props) {
+  @media screen and (orientation: landscape) {
+    width: 247px;
+  }
+`;
+
+function Logopage() {
 
   useEffect(() => {
     const { pathname } = Router;
@@ -24,15 +31,15 @@ function Logopage({}: Props) {
 
   return (
     <>
-      <main className={styles.main}>
-        <div>
+      <main className={styles.main} style={{'height': '100vh'}}>
+        <ImageContainer>
           <Image 
             src={Logo}
-            width={240} 
-            height={270}
+            priority={true}
+            layout='responsive'
             alt='Tickits Logo' 
           />
-        </div>
+        </ImageContainer>
         <Spin />
         <H1 family='primary' align='center'>
           TICKITS 

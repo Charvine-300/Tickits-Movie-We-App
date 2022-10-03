@@ -13,8 +13,6 @@ import { BaseButton } from '../assets/styles/Button/styled'
 import { theme } from '../assets/variables'
 
 
-const background = 'linear-gradient(268.86deg, #BA68C8 0%, #F79240 100%)';
-
 const FeatureSlide = styled.div`
   #features .swiper-wrapper {
     align-items: center;
@@ -28,7 +26,19 @@ const FeatureSlide = styled.div`
   }
 
   #features .swiper-pagination-bullet-active {
-    background: linear-gradient(268.86deg, #BA68C8 0%, #F79240 100%);
+    background: ${theme.white[100]};
+  }
+
+  main {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 1024px) {
+    main {
+      border: 3px solid ${theme.grey[700]};
+      border-radius: 10px;
+    }
   }
 `;
 
@@ -68,7 +78,7 @@ export default function Onboard() {
         >
           {Features.map(feature => (
             <SwiperSlide key={feature.id}>
-              <main className={styles.main} style={{'padding': '7rem 0 3rem 0'}}>
+              <main className={styles.main} style={{'margin': '4rem auto','padding': '0.5rem 0'}}>
                 <div>
                   <Image 
                     src={feature.image}
@@ -78,7 +88,7 @@ export default function Onboard() {
                     alt='Features Logo' 
                   />
                 </div>
-                <Paragraph margin='2rem 0' family='secondary' align='center' width='80%'>
+                <Paragraph margin='2rem 0' align='center' width='80%'>
                   {feature.content}
                 </Paragraph>
               </main>
@@ -87,7 +97,7 @@ export default function Onboard() {
         </Swiper>
       </FeatureSlide>
 
-      <BaseButton bg={`${background}`} variant='solid' radius='8px' width='270px' margin='2.5rem auto' family='secondary'> 
+      <BaseButton variant='solid' radius='8px' width='270px' margin='2.5rem auto'> 
         Book Now 
       </BaseButton>
      
