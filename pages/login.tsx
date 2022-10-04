@@ -90,7 +90,7 @@ function Login() {
             <InputLabel htmlFor='email'> 
               Email
             </InputLabel>
-            <Input family='secondary' id='email'></Input>
+            <Input id='email'></Input>
           </div>
           <div className="input-labels">
             <InputLabel htmlFor='password'> 
@@ -110,7 +110,6 @@ function Login() {
               </div>
               <Input 
                 type={password === true ? 'text' : 'password'} 
-                family='secondary' 
                 id='password'
               ></Input>
             </div>
