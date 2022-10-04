@@ -1,8 +1,8 @@
 import { theme, font } from '../../variables';
 import styled from 'styled-components';
-import { TextProps } from '../../types';
 
-export const InputBase = styled.input<TextProps>`
+
+export const InputBase = styled.input`
   width: 100%;
   border: none;
   background: transparent;
@@ -14,5 +14,5 @@ export const InputBase = styled.input<TextProps>`
   font-size: ${font.sizes.sm};
   font-weight: ${font.weights.normal};
   color: ${theme.white[200]};
-  font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary}
+  font-family: ${font.family.secondary};
 `;

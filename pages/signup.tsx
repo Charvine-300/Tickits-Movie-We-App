@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { Column } from '../assets/styles/Flex'
+import { SignIn, SignupLink } from './login'
 import { H4, Paragraph } from '../assets/styles';
 import { Input } from '../assets/styles/Input';
 import See from '../public/see_password.png'
@@ -13,79 +13,35 @@ import { InputLabel } from '../assets/styles/InputLabel';
 import { font, theme } from '../assets/variables'
 
 
-export const SignIn = styled(Column)`
-  form {
-    width: 100%;
-  }
-
-  .folder {
-    padding: 4rem 0;
-  }
-
-  .input-labels {
-    padding: 0.5rem 0;
-  }
-
-  .toggle-password {
-    position: relative;
-    
-    .eye {
-      width: 23px;
-      height: 17px;
-      position: absolute;
-      right: 1rem;
-      top: 0;
-      bottom: 0;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    min-height: 100vh;
-
-    .folder {
-      width: 50%;
-      padding: 2rem 3rem;
-      border-radius: 8px;
-      border: 3px solid ${theme.black[400]};
-
-      h4 {
-        text-align: center;
-      }
-    }
-  }
-`;
-
-export const SignupLink = styled(Paragraph)`
-  a {
-    font-weight: ${font.weights.semibold};
-  }
-`;
-
-function Login() {
-
+function Signup() {
   //Stateful variable for Password toggle
   const [password, setPassword] = useState(false);
-
+  const [confirm, setConfirm] = useState(false);
+  
 
   return (
     <>
       <Head>
-        <title> Tickits | Log In </title>
+        <title> Tickits | Sign Up </title>
         <meta 
           name="description" 
-          content="Log in to your account"
+          content="Sign up for an account on Tickits"
         />
         <link rel="icon" type='image/png' href="/logo.png" />
       </Head>
 
-      <SignIn width='80%' margin='0 auto' justify='center' align='center'>
+      <SignIn width='80%' margin='0 auto' justify='center' align='center' padding='2rem 0'>
         <div className="folder">
         <H4 margin='0 0 2rem 0'> 
-          Sign In 
+          Sign Up
         </H4>
         <form action="" method="post">
+        <div className="input-labels">
+            <InputLabel htmlFor='name'> 
+              Name
+            </InputLabel>
+            <Input id='name'></Input>
+          </div>
           <div className="input-labels">
             <InputLabel htmlFor='email'> 
               Email
@@ -94,7 +50,7 @@ function Login() {
           </div>
           <div className="input-labels">
             <InputLabel htmlFor='password'> 
-              Password
+              Create Password
             </InputLabel>
             <div className="toggle-password">
               <div className="eye" onClick={() => {if (password) {
@@ -114,6 +70,28 @@ function Login() {
               ></Input>
             </div>
           </div>
+          <div className="input-labels">
+            <InputLabel htmlFor='confirm-password'> 
+              Confirm Password
+            </InputLabel>
+            <div className="toggle-password">
+              <div className="eye" onClick={() => {
+                if (confirm) { setConfirm(false) }
+                else { setConfirm(true) }
+              }}>
+                <Image 
+                  src={confirm === true ? Hide : See} 
+                  layout='responsive'
+                  priority={true}
+                  alt='Password Toggle' 
+                />
+              </div>
+              <Input 
+                type={confirm === true ? 'text' : 'password'} 
+                id='confirm-password'
+              ></Input>
+            </div>
+          </div>
         </form>
         <Paragraph align='right' weight='light' style={{'textDecoration': 'underline'}}>  
           <Link href='/'> 
@@ -124,8 +102,8 @@ function Login() {
           Sign In
         </BaseButton>
         <SignupLink align='center'> 
-          Don&#39;t have an account? 
-          <Link href={'/signup'} as={'/signup'}> Sign up </Link>
+          Already have an account? 
+          <Link href={'/login'} as={'/login'}> Sign in </Link>
         </SignupLink>
         </div>
       </SignIn>
@@ -133,4 +111,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Signup

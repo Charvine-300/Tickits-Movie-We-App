@@ -8,7 +8,7 @@ export const Input: React.FC<InputProps> = ({ label, ...props }) => {
     <Column>
       {label && <InputLabel>{label}</InputLabel>}
       <Row>
-        <InputBase autoComplete="new-password" />
+        <InputBase {...props} autoComplete="new-password" />
       </Row>
     </Column>
   );
