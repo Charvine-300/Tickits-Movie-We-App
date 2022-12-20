@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { Features } from '../constants'
 import { Paragraph } from '../assets/styles'
@@ -98,7 +99,7 @@ export default function Onboard() {
       </FeatureSlide>
 
       <BaseButton variant='solid' radius='8px' width='270px' margin='2.5rem auto'> 
-        Book Now 
+        <Link href={'/login'} as={'/login'} passHref> Book Now </Link>
       </BaseButton>
      
     </>

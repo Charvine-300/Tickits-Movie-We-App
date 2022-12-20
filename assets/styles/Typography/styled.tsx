@@ -10,6 +10,8 @@ export const Text = styled.span<TextProps>`
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   text-align: ${(props) => props.align || 'left'};
   margin: ${(props) => props.margin || '0.5rem 0'};
+  max-width: 100%;
+  width: ${props => props.width || '100%'};
 `;
 
 export const H1 = styled.h1<TextProps>`
@@ -20,6 +22,7 @@ export const H1 = styled.h1<TextProps>`
   color: ${(props) => props.color || theme.white[100]};
   margin: ${(props) => props.margin || '0.5rem 0'};
   max-width: 100%;
+  width: ${props => props.width || '100%'};
 `;
 
 export const Paragraph = styled.p<TextProps>`
@@ -29,7 +32,8 @@ export const Paragraph = styled.p<TextProps>`
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   text-align: ${(props) => props.align || 'left'};
   margin: ${props => props.margin || '0.5rem 0'};
-  max-width:${props => props.width || '100%'};
+  width: ${props => props.width || '100%'};
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
@@ -41,6 +45,8 @@ export const H2 = styled.h2<TextProps>`
   color: ${(props) => props.color || theme.black[100]};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   margin: ${(props) => props.margin || '0.5rem 0'};
+  width: ${props => props.width || '100%'};
+  max-width: 100%;
 `;
 
 export const H3 = styled.h3<TextProps>`
@@ -51,6 +57,7 @@ export const H3 = styled.h3<TextProps>`
   margin: ${(props) => props.margin || '0.5rem 0'};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   max-width: 100%;
+  width: ${props => props.width || '100%'};
 `;
 
 export const H4 = styled.h4<TextProps>`
@@ -60,8 +67,8 @@ export const H4 = styled.h4<TextProps>`
   text-align: ${(props) => props.align || 'left'};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   margin: ${(props) => props.margin || '0.5rem 0'};
-  width: 100%;
-  max-width:${props => props.width || '100%'};
+  max-width: 100%;
+  width: ${props => props.width || '100%'};
 `;
 
 export const H5 = styled.h5<TextProps>`
@@ -72,6 +79,7 @@ export const H5 = styled.h5<TextProps>`
   margin: ${(props) => props.margin || '0.5rem 0'};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
   max-width: 100%;
+  width: ${props => props.width || '100%'};
 `;
 
 export const H6 = styled.h6<TextProps>`
@@ -81,4 +89,6 @@ export const H6 = styled.h6<TextProps>`
   margin: ${(props) => props.margin || '0.5rem 0'};
   text-align: ${(props) => props.align || 'left'};
   font-family: ${(props) => props.family === 'primary' ? font.family.primary : font.family.secondary};
+  width: ${props => props.width || '100%'};
+  max-width: 100%;
 `;

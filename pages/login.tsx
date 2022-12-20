@@ -4,12 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { Column } from '../assets/styles/Flex'
-import { H4, Paragraph } from '../assets/styles';
-import { Input } from '../assets/styles/Input';
+import { H4, Paragraph } from '../assets/styles'
+import { Input } from '../assets/styles/Input'
 import See from '../public/see_password.png'
-import Hide from '../public/hide_password.png';
-import { BaseButton } from '../assets/styles/Button/styled';
-import { InputLabel } from '../assets/styles/InputLabel';
+import Hide from '../public/hide_password.png'
+import { BaseButton } from '../assets/styles/Button/styled'
+import { InputLabel } from '../assets/styles/InputLabel'
 import { font, theme } from '../assets/variables'
 
 
@@ -64,10 +64,8 @@ export const SignupLink = styled(Paragraph)`
 `;
 
 function Login() {
-
   //Stateful variable for Password toggle
   const [password, setPassword] = useState(false);
-
 
   return (
     <>
@@ -82,51 +80,50 @@ function Login() {
 
       <SignIn width='80%' margin='0 auto' justify='center' align='center'>
         <div className="folder">
-        <H4 margin='0 0 2rem 0'> 
-          Sign In 
-        </H4>
-        <form action="" method="post">
-          <div className="input-labels">
-            <InputLabel htmlFor='email'> 
-              Email
-            </InputLabel>
-            <Input id='email'></Input>
-          </div>
-          <div className="input-labels">
-            <InputLabel htmlFor='password'> 
-              Password
-            </InputLabel>
-            <div className="toggle-password">
-              <div className="eye" onClick={() => {if (password) {
-                setPassword(false)}
-                else { setPassword(true)}
-              }}>
-                <Image 
-                  src={password === true ? Hide : See} 
-                  layout='responsive'
-                  priority={true}
-                  alt='Password Toggle' 
-                />
-              </div>
-              <Input 
-                type={password === true ? 'text' : 'password'} 
-                id='password'
-              ></Input>
+          <H4 margin='0 0 2rem 0'> 
+            Sign In 
+          </H4>
+
+          <form method="POST">
+            <div className="input-labels">
+              <InputLabel htmlFor='email'> 
+                Email
+              </InputLabel>
+              <Input id='email' type='email'></Input>
             </div>
-          </div>
-        </form>
-        <Paragraph align='right' weight='light' style={{'textDecoration': 'underline'}}>  
-          <Link href='/'> 
-            Forgot Password? 
-          </Link>
-        </Paragraph>
-        <BaseButton variant='solid' radius='8px' width='270px' margin='2.5rem auto'> 
-          Sign In
-        </BaseButton>
-        <SignupLink align='center'> 
-          Don&#39;t have an account? 
-          <Link href={'/signup'} as={'/signup'}> Sign up </Link>
-        </SignupLink>
+            <div className="input-labels">
+              <InputLabel htmlFor='password'> 
+                Password
+              </InputLabel>
+              <div className="toggle-password">
+                <div className="eye" onClick={() => {if (password) {
+                  setPassword(false)}
+                  else { setPassword(true)}
+                }}>
+                  <Image 
+                    src={password === true ? Hide : See} 
+                    layout='responsive'
+                    priority={true}
+                    alt='Password Toggle' 
+                  />
+                </div>
+                <Input id='password' type={password === true ? 'text' : 'password'}></Input>
+              </div>
+            </div>
+
+            <Paragraph align='right' weight='light' style={{'textDecoration': 'underline'}}>  
+              <Link href='/'> 
+                Forgot Password? 
+              </Link>
+            </Paragraph>
+            <BaseButton type="submit" variant='solid' radius='8px' width='270px' margin='2.5rem auto'> 
+              <Link href={'/homepage'} as={'/homepage'}> Sign In </Link>
+            </BaseButton>
+            <SignupLink align='center'> 
+              Don&#39;t have an account? 
+              <Link href={'/signup'} as={'/signup'} passHref> Sign up </Link>
+            </SignupLink>
+          </form>
         </div>
       </SignIn>
     </>
