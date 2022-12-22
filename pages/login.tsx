@@ -12,7 +12,6 @@ import { BaseButton } from '../assets/styles/Button/styled'
 import { InputLabel } from '../assets/styles/InputLabel'
 import { font, theme } from '../assets/variables'
 
-
 export const SignIn = styled(Column)`
   form {
     width: 100%;
