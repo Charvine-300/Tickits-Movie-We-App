@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { LoginInput } from '../interfaces.type'
+import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import { Column } from '../assets/styles/Flex'
 import { H4, Paragraph } from '../assets/styles'
-import { Input } from '../assets/styles/Input'
 import See from '../public/see_password.png'
 import Hide from '../public/hide_password.png'
 import { BaseButton } from '../assets/styles/Button/styled'
 import { InputLabel } from '../assets/styles/InputLabel'
 import { font, theme } from '../assets/variables'
+import styles from '../styles/Home.module.css'
+
 
 export const SignIn = styled(Column)`
   form {
@@ -62,9 +65,17 @@ export const SignupLink = styled(Paragraph)`
   }
 `;
 
+
 function Login() {
   //Stateful variable for Password toggle
   const [password, setPassword] = useState(false);
+
+  //Setting up form validation
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginInput>({
+    mode: 'onChange'
+  });
+
+  const onSubmit = (data: any) => console.log(`Email input value: ${data.email}`);
 
   return (
     <>
@@ -83,12 +94,13 @@ function Login() {
             Sign In 
           </H4>
 
-          <form method="POST">
+          <form method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="input-labels">
               <InputLabel htmlFor='email'> 
                 Email
               </InputLabel>
-              <Input id='email' type='email'></Input>
+              <input className={styles.inputbar} id='email' type='email' {...register("email", { required: true })} />
+              {errors.email && <Paragraph color={theme.red[500]}> This field is required </Paragraph>}
             </div>
             <div className="input-labels">
               <InputLabel htmlFor='password'> 
@@ -106,8 +118,14 @@ function Login() {
                     alt='Password Toggle' 
                   />
                 </div>
-                <Input id='password' type={password === true ? 'text' : 'password'}></Input>
+                <input className={styles.inputbar} 
+                  id='password' 
+                  type={password === true ? 'text' : 'password'}
+                  {...register('password', { required: true })}
+                />
               </div>
+              {/* Error Message */}
+              {errors.password && <Paragraph color={theme.red[500]}> This field is required </Paragraph>}
             </div>
 
             <Paragraph align='right' weight='light' style={{'textDecoration': 'underline'}}>  
@@ -116,7 +134,7 @@ function Login() {
               </Link>
             </Paragraph>
             <BaseButton type="submit" variant='solid' radius='8px' width='270px' margin='2.5rem auto'> 
-              <Link href={'/homepage'} as={'/homepage'}> Sign In </Link>
+              Sign In
             </BaseButton>
             <SignupLink align='center'> 
               Don&#39;t have an account? 
